@@ -209,7 +209,7 @@ featureform apply definitions.py
 Once we have our training set and features registered, we can train our model.
 
 ```py
-import featureform as ff
+client = ff.Client()
 
 client = ff.ServingClient()
 dataset = client.training_set("fraud_training")
@@ -235,7 +235,7 @@ We can serve features in production once we deploy our trained model as well.
 
 ```py
 import featureform as ff
-
+client = ff.Client()
 client = ff.ServingClient()
 fpf = client.features(["avg_transactions"], {"user": "C1011381"})
 print(fpf)

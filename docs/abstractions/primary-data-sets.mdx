@@ -9,10 +9,10 @@ There are three primary types of data sets that you can register: directories, f
 
 ## Tables
 
-Table-based Offline Stores, such as Snowflake, inherently revolve around tables. These providers furnish a method known as `.register_table(name, variant, table="")`. This method enables you to register transformations based on the primary data set or to register features and labels derived from it.
+Table-based Offline Stores, such as Snowflake, inherently revolve around tables. These providers furnish a method known as `.register_table(name, table, variant="")`. This method enables you to register transformations based on the primary data set or to register features and labels derived from it.
 
 ## Files
 
-Offline Stores like Spark interact with file stores like S3 and HDFS. For these providers, there exists a method called `.register_file(name, variant="", path="")`.
+Offline Stores like Spark interact with file stores like S3 and HDFS. For these providers, there exists a method called `.register_file(name, file_path, variant="")`.
 
 Currently, Featureform offers support for CSVs and Parquet files. If your specific use case requires a different file format, please don't hesitate to raise an issue on Github or engage with our community on Slack. We value your feedback and are eager to explore new possibilities.

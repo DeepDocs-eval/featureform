@@ -83,9 +83,7 @@ azure_blob = ff.register_blob_store(
     name="azure-quickstart",
     description="An azure blob store provider to store offline and inference data"
     container_name="my_company_container"
-    # Will either be the container name or the container name plus a path if you plan read/write
-    # to a specific directory in your container
-    root_path="my_company_container/path/to/specific/directory"
+    root_path="path/to/specific/directory", # optional path within the container
     account_name=""
     account_key=""
 )
@@ -98,9 +96,9 @@ spark = ff.register_spark(
 
 transactions = spark.register_file(
     name="transactions",
-    variant=variant,
+    variant="quickstart",
     # Must be an absolute path using the abfss:// protocol
-    file_path="abfss://@.dfs.core.windows.net/transactions.csv",
+    file_path="abfss://my-container@my-account.dfs.core.windows.net/transactions.csv",
 )
 ```
 
@@ -112,7 +110,13 @@ transactions = spark.register_file(
 
 * `password` (Executor)
 
+* `host` (Executor)
+
 * `token` (Executor)
+
+* `cluster_id` (Executor)
+
+* `account_name` (File Store)
 
 * `account_key` (File Store)
 

@@ -5,7 +5,7 @@ description: "A Vector Database provider is designed to facilitate nearest neigh
 ---
 
 ```python
-client.nearest([(name, variant)], vec, numResults)
+client.nearest("name", "variant", vec, numResults)
 ```
 
 With the Vector Database provider, you can perform nearest neighbor queries to find similar entities or data points based on their feature vectors. This functionality is particularly valuable in various use cases, such as recommendation systems, content similarity analysis, and LLM applications.

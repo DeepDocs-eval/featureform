@@ -14,7 +14,7 @@ import featureform as ff
 
 @ff.entity
 class User:
-  top_song = ff.Label(dataset[["user", "top_song"]], variant="30days", type=ff.String)
+  top_song = ff.Label(dataset[["user", "top_song"]], variant="30days", type=ff.String, timestamp_column="timestamp")
 ```
 
 ### Without a Timestamp

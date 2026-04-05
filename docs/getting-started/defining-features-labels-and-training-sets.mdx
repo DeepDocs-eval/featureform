@@ -44,10 +44,11 @@ This example is based off of a fraud training set with a CustomerID, Transaction
 class Customer:
     # Register a column from a transformation as a feature
     transaction_amount = ff.Feature(
-        fare_per_family_member[["CustomerID", "Amount", "Transaction Time"]],
+        fare_per_family_member[["CustomerID", "Amount"]],
         variant="quickstart",
         type=ff.Float64,
         inference_store=redis,
+        timestamp_column="Transaction Time",
     )
 ```
 

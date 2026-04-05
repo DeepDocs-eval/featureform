@@ -15,10 +15,10 @@ gcs = ff.register_gcs(
     credentials=ff.GCPCredentials(...),
     bucket_name="bucket_name",
     bucket_path="featureform/path/",
-    description="An gcs store provider to store offline"
+    root_path="featureform/path/",
 )
 
 client.apply()
-```
+ff.apply()
 
 We can re-verify that the provider is created by checking the [Providers tab of the Feature Registry or via the CLI](../getting-started/search-monitor-discovery-feature-registry-ui-cli.md).

@@ -32,7 +32,7 @@ We'll begin by specifying our providers in a Python file.
 ```python
 import featureform as ff
 
-client = ff.Client(host=host)
+client = ff.Client()
 
 redis = ff.register_redis(
     name="redis",
