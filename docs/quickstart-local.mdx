@@ -119,7 +119,7 @@ ff.register_training_set(
 Now that our definitions are complete, we can apply them to our Featureform instance.
 
 ```
-featureform apply definitions.py --local
+featureform apply definitions.py
 ```
 
 ## Step 4: Serve features for training and inference
@@ -129,7 +129,7 @@ Once we have our training set and features registered, we can train our model.
 ```python
 import featureform as ff
 
-client = ff.Client(local=True)
+client = ff.Client()
 dataset = client.training_set("fraud_training", "quickstart")
 training_dataset = dataset.repeat(10).shuffle(1000).batch(8)
 for row in training_dataset:

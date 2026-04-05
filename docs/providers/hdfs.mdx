@@ -14,7 +14,7 @@ hdfs = ff.register_hdfs(
     host="<host>",
     port="<port>",
     path="<path>",
-    username="<username>",
+    credentials=ff.BasicCredentials(username="<username>"),
     description="An hdfs store provider to store offline"
 )
 

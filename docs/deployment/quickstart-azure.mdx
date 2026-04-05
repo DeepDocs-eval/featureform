@@ -241,7 +241,7 @@ Once we have our training set and features registered, we can train our model.
 ```py
 import featureform as ff
 
-client = ff.ServingClient()
+    client = ff.Client()
 dataset = client.training_set("fraud_training", "quickstart")
 training_dataset = dataset.repeat(10).shuffle(1000).batch(8)
 for row in training_dataset:
@@ -252,7 +252,7 @@ We can serve features in production once we deploy our trained model as well.
 
 ```py
 import featureform as ff
-
+    client = ff.Client()
 client = ff.ServingClient()
 fpf = client.features([("avg_transactions", "quickstart")], {"user": "C1410926"})
 print(fpf)

@@ -4,10 +4,10 @@ description: "When it comes to working with data for machine learning, dataframe
 ---
 
 ```python
-@spark.df_transform(inputs=[upstream_data])
+@spark.df_transformation(inputs=[upstream_data])
 def transformation_name(upstream):
   ...
-client.dataframe(transformation_name)
+client.dataframe("transformation_name")
 ```
 
 In scenarios where the dataset is sizable enough to exceed memory limits or when a sample suffices, you can include the *rows* parameter to restrict the number of pulled rows.

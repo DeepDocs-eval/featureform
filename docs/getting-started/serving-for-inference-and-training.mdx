@@ -47,7 +47,7 @@ fpf = client.features([("fpf", "quickstart")], {"passenger": "1"}).wait(timeout=
 When a [training set is defined](/getting-started/defining-features-labels-and-training-sets#registering-training-sets), it is materialized into the [offline store](/getting-started/registering-infrastructure-providers#offline-store) associated with the definition. The label from the training set is zipped with the features to form a [point-in-time correct](/getting-started/defining-features-labels-and-training-sets#point-in-time-correctness) dataset. Once that's complete we can initialize a ServingClient and loop through the our dataset
 
 ```py
-import featureform as ff
+client = ff.Client(host)
 
 client = ff.ServingClient(host)
 dataset = client.training_set(name, variant)
@@ -63,7 +63,7 @@ The Dataset API takes inspiration from Tensorflow's Dataset API, and both can be
 #### Repeat
 
 ```py
-import featureform as ff
+client = ff.Client(host)
 
 client = ff.ServingClient(host)
 for row in client.training_set(name, variant).repeat(5):
@@ -73,7 +73,7 @@ for row in client.training_set(name, variant).repeat(5):
 #### Shuffle
 
 ```py
-import featureform as ff
+client = ff.Client(host)
 
 client = ff.ServingClient(host)
 buffer_size = 1000
@@ -84,7 +84,7 @@ for row in client.training_set(name, variant).shuffle(buffer_size):
 #### Batch
 
 ```py
-import featureform as ff
+client = ff.Client(host)
 
 client = ff.ServingClient(host)
 for batch in client.training_set(name, variant).batch(8):
@@ -96,7 +96,7 @@ for batch in client.training_set(name, variant).batch(8):
 The `wait()` function can be used to wait until the specified training set is ready to be served before attempting to call it. It has an optional timeout in seconds to wait for the training set to be complete.
 
 ```py
-import featureform as ff
+client = ff.Client(host)
 
 client = ff.ServingClient(host)
 for row in client.training_set(name, variant).wait(timeout=60):
@@ -108,7 +108,7 @@ for row in client.training_set(name, variant).wait(timeout=60):
 The commands above can be chained together.
 
 ```py
-import featureform as ff
+client = ff.Client(host)
 
 client = ff.ServingClient(host)
 dataset = client.training_set(name, variant).repeat(5).shuffle(1000).batch(64)

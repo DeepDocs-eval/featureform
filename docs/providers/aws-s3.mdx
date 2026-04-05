@@ -15,11 +15,11 @@ s3 = ff.register_s3(
     credentials=ff.AWSStaticCredentials(...),
     bucket_name="bucket_name",
     bucket_region=<bucket_region>,
-    path="path/to/store/featureform_files/in/",
+    bucket_region="us-east-1",
     description="An s3 store provider to store offline"
 )
 
-client.apply()
+ff.apply()
 ```
 
 We can re-verify that the provider is created by checking the [Providers tab of the Feature Registry or via the CLI](../getting-started/search-monitor-discovery-feature-registry-ui-cli.md).
